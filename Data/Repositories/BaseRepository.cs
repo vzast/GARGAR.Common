@@ -1,6 +1,6 @@
 ﻿using Data.Context;
-using Data.Repositories.Interfaces;
 using Data.Models.Public;
+using Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -62,7 +62,6 @@ namespace Data.Repositories
             entity.UpdatedOn = now;
             await _dbSet.AddAsync(entity);
             await Save();
-
         }
 
         public async Task RemoveAsync(T entity)
@@ -86,7 +85,9 @@ namespace Data.Repositories
             return await _dbSet.AnyAsync(predicate);
         }
 
-        #endregion 
+        #endregion Methods
+
+
 
         public async Task Save() => await _context.SaveChangesAsync();
     }

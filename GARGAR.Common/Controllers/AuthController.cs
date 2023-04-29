@@ -1,12 +1,8 @@
 ﻿using Domain.User.Auth;
-using Mapster;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using Shared.DTO;
-using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -15,17 +11,16 @@ namespace GARGAR.Common.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "4")]
     public class AuthController : ControllerBase
     {
         private readonly IUserAuthenticationService _auth;
         private readonly IConfiguration _config;
-        public AuthController(IUserAuthenticationService authenticationService,IConfiguration configuration)
+
+        public AuthController(IUserAuthenticationService authenticationService, IConfiguration configuration)
         {
             _auth = authenticationService;
             _config = configuration;
         }
-
 
         [HttpPost("SignUp")]
         public async Task<ActionResult> SignUp([FromBody] SignUpDTO request)

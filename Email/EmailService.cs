@@ -1,8 +1,8 @@
-﻿using Email.Settings;
-using System.Net.Mail;
-using System.Net;
-using Email.Models;
+﻿using Email.Models;
+using Email.Settings;
 using Microsoft.Extensions.Configuration;
+using System.Net;
+using System.Net.Mail;
 
 namespace Email
 {
@@ -49,7 +49,7 @@ namespace Email
         }
 
         /// <summary>
-        /// Sends same body-subject mails to Emails specified in models Email list 
+        /// Sends same body-subject mails to Emails specified in models Email list
         /// </summary>
         /// <param name="model">The first number to add.</param>
         public async Task SendAsync(MultipleEmailModel model)

@@ -2,13 +2,12 @@
 using Data.Repositories.Interfaces;
 using Domain.User.Auth;
 using Email;
-using Email.Settings;
 
 namespace GARGAR.Common.Extentions
 {
     public static class ServiceExtentions
     {
-        //Why? 
+        //Why?
         //Idk )
         /// <summary>
         /// adds EmailService as Singleton
@@ -18,14 +17,15 @@ namespace GARGAR.Common.Extentions
         {
             services.AddSingleton<EmailService>();
         }
+
         public static void AddServices(this IServiceCollection services)
         {
             services.AddTransient<IUserAuthenticationService, UserAuthenticationService>();
         }
+
         public static void AddRepositoryes(this IServiceCollection services)
         {
-            services.AddTransient<IUserRepository,UserRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
         }
-
     }
 }

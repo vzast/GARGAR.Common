@@ -4,12 +4,6 @@ using Email.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Shared.DTO;
-using Data.Models.Public;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.User.Auth
 {
@@ -18,6 +12,7 @@ namespace Domain.User.Auth
         public readonly IUserRepository _user;
         private readonly IConfiguration _configuration;
         private readonly EmailService _email;
+
         public UserAuthenticationService(IUserRepository user, IConfiguration configuration, EmailService email)
         {
             _user = user;
@@ -26,7 +21,7 @@ namespace Domain.User.Auth
         }
 
         /// <summary>
-        /// Signs Up user 
+        /// Signs Up user
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -37,7 +32,7 @@ namespace Domain.User.Auth
 
         /// <summary>
         /// trying to Sign in Specific user,
-        /// in case of Locking Out Sends email notification 
+        /// in case of Locking Out Sends email notification
         /// to specidffic user who is found by his email ro username
         /// </summary>
         /// <param name="request"></param>

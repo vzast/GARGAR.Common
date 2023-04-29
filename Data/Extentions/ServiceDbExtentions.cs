@@ -1,13 +1,6 @@
-﻿using Data.Models;
+﻿using Data.Repositories;
 using Data.Repositories.Interfaces;
-using Data.Repositories;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data.Extentions
 {

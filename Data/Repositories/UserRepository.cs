@@ -1,9 +1,8 @@
-﻿
+﻿using Data.Models.Public;
 using Data.Repositories.Interfaces;
-using Data.Models.Public;
 using Microsoft.AspNetCore.Identity;
-using Shared.DTO;
 using Microsoft.EntityFrameworkCore;
+using Shared.DTO;
 
 namespace Data.Repositories
 {
@@ -12,8 +11,7 @@ namespace Data.Repositories
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
 
-
-        public UserRepository(UserManager<User> userManager , SignInManager<User> signInManager )
+        public UserRepository(UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -36,12 +34,11 @@ namespace Data.Repositories
         public async Task<SignInResult> LogIn(LoginDTO request)
         {
             var user = await GetUserByEmailOrUsername(request.EmailOrUsername);
-            var resonse = await _signInManager.PasswordSignInAsync(user, request.Password,request.isPersist,false);
+            var resonse = await _signInManager.PasswordSignInAsync(user, request.Password, request.isPersist, false);
             return resonse;
         }
 
-
-        #endregion
+        #endregion Auth
 
         #region Get
 
@@ -56,6 +53,7 @@ namespace Data.Repositories
             }
             return user;
         }
-        #endregion
+
+        #endregion Get
     }
 }
