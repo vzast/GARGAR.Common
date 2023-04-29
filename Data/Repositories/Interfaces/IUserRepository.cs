@@ -1,10 +1,14 @@
 ﻿
+using Data.Models.Public;
+using Microsoft.AspNetCore.Identity;
 using Shared.DTO;
 
 namespace Data.Repositories.Interfaces
 {
-    internal interface IUserRepository
+    public interface IUserRepository
     {
-        public Task SignUp(UserRegistrationDTO request);
+        public Task<User> GetUserByEmailOrUsername(string EmailOrUsername);
+        public Task<SignInResult> LogIn(LoginDTO request);
+        public Task<IdentityResult> SignUp(SignUpDTO request);
     }
 }
